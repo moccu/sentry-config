@@ -24,7 +24,7 @@ Raven.config('https://<key>@sentry.io/<project>', {
 	whitelistUrls: ['example.com'],
 	ignoreErrors,
 	ignoreUrls
-});
+}).install();
 ```
 
 ## License
