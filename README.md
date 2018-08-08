@@ -7,12 +7,25 @@ The basic raven.js configuration we use at moccu
 ## Installation
 
 ```
-$ npm install --save-dev @moccu/ravenjs-config
+$ npm install --save @moccu/ravenjs-config
 ```
 
 ## Usage
 
-TBD
+The ravenjs config exposes a preconfigured set of `ignoreErrors` and `ignoreUrls`
+Usage may look as follows:
+
+```js
+import Raven from 'raven-js';
+import {ignoreErrors, ignoreUrls} from '@moccu/ravenjs-config';
+
+
+Raven.config('https://<key>@sentry.io/<project>', {
+	whitelistUrls: ['example.com'],
+	ignoreErrors,
+	ignoreUrls
+});
+```
 
 ## License
 
