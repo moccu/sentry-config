@@ -1,0 +1,19 @@
+{
+  "name": "@moccu/ravenjs-config",
+  "version": "0.0.1",
+  "description": "The basic raven.js configuration we use at moccu",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/moccu/ravenjs-config.git"
+  },
+  "author": "Moccu GmbH & Co. KG",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/moccu/ravenjs-config/issues"
+  },
+  "homepage": "https://github.com/moccu/ravenjs-config#readme"
+}
