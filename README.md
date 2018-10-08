@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/moccu/sentry-config.svg?branch=master)](https://travis-ci.org/moccu/sentry-config)
 
-The basic raven.js configuration we use at moccu
+The basic sentry sdk configuration we use at moccu
 
 ## Installation
 
