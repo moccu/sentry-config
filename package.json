@@ -1,8 +1,8 @@
 {
   "name": "@moccu/sentry-config",
   "version": "0.0.1",
-  "description": "The basic raven.js configuration we use at moccu",
   "main": "index.js",
+  "description": "The basic sentry configuration we use at moccu",
   "scripts": {
     "test": "node test/test.js"
   },
@@ -20,5 +20,8 @@
     "@moccu/eslint-config": "^0.1.0",
     "chalk": "^2.4.1",
     "eslint": "^5.3.0"
+  },
+  "dependencies": {
+    "@sentry/browser": "^4.0.0"
   }
 }

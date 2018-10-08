@@ -1,4 +1,5 @@
-'use strict';
+import * as Sentry from '@sentry/browser';
+
 
 const
 
@@ -84,6 +85,33 @@ const
 	]
 ;
 
-// Expose settings:
-module.exports.ignoreErrors = ignoreErrors;
-module.exports.ignoreUrls = ignoreUrls;
+
+function init({dsn, whitelistUrls, tags = {}, ...settings}, expose = true) {
+	// Log error if dsn or whitelist is not defined.
+	if (!dsn || !whitelistUrls) {
+		global.console &&
+		global.console.error &&
+		global.console.error('Setup sentry using dsn and whitelistUrls.');
+		return false;
+	}
+
+	// Transform whitelist urls strings (from json) into regular expressions.
+	whitelistUrls = whitelistUrls.map((url) => new RegExp(url));
+
+	Sentry.init({dsn, whitelistUrls, ...settings});
+
+	// Add additional tags under 'tags' property from settings.
+	Sentry.configureScope((scope) => {
+		Object.keys(tags).forEach((key) => scope.setTag(key, tags[key]));
+	});
+
+	// Expose Sentry API to global namespace.
+	if (expose) {
+		global.Sentry = Sentry;
+	}
+
+	return true;
+}
+
+
+export {init, ignoreErrors, ignoreUrls};
