@@ -1,16 +1,16 @@
-'use strict';
-
 const
 	assert = require('assert'),
 	chalk = require('chalk'),
-	config = require('../index'),
 	eslint = require('eslint'),
-	report = new eslint.CLIEngine().executeOnFiles(['**/*.js'])
+	report = new eslint.CLIEngine().executeOnFiles(['**/*.js']),
+
+	lib = require('../dist/lib')
 ;
 
 assert.deepEqual(
-	Object.keys(config),
+	Object.keys(lib),
 	[
+		'init',
 		'ignoreErrors',
 		'ignoreUrls'
 	],
@@ -18,12 +18,12 @@ assert.deepEqual(
 );
 
 assert.ok(
-	Array.isArray(config.ignoreUrls),
+	Array.isArray(lib.ignoreUrls),
 	'ignore urls are available'
 );
 
 assert.ok(
-	Array.isArray(config.ignoreErrors),
+	Array.isArray(lib.ignoreErrors),
 	'ignore errors are available'
 );
 

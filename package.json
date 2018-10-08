@@ -1,10 +1,12 @@
 {
   "name": "@moccu/sentry-config",
   "version": "0.0.1",
-  "main": "index.js",
   "description": "The basic sentry configuration we use at moccu",
+  "main": "dist/lib.js",
+  "module": "src/lib.js",
   "scripts": {
-    "test": "node test/test.js"
+    "dist": "rollup --c ./rollup.config.js",
+    "test": "rollup --c ./rollup.config.test.js && node test/test.js"
   },
   "repository": {
     "type": "git",
@@ -17,9 +19,14 @@
   },
   "homepage": "https://github.com/moccu/sentry-config#readme",
   "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
     "@moccu/eslint-config": "^0.1.0",
+    "babel-eslint": "^10.0.1",
     "chalk": "^2.4.1",
-    "eslint": "^5.3.0"
+    "eslint": "^5.3.0",
+    "rollup": "^0.66.4",
+    "rollup-plugin-babel": "^4.0.3"
   },
   "dependencies": {
     "@sentry/browser": "^4.0.0"
