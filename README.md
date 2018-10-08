@@ -1,13 +1,13 @@
-# ravenjs-config
+# sentry-config
 
-[![Build Status](https://travis-ci.org/moccu/ravenjs-config.svg?branch=master)](https://travis-ci.org/moccu/ravenjs-config)
+[![Build Status](https://travis-ci.org/moccu/sentry-config.svg?branch=master)](https://travis-ci.org/moccu/sentry-config)
 
 The basic raven.js configuration we use at moccu
 
 ## Installation
 
 ```
-$ npm install --save @moccu/ravenjs-config
+$ npm install --save @moccu/sentry-config
 ```
 
 ## Usage
@@ -17,7 +17,7 @@ Usage may look as follows:
 
 ```js
 import Raven from 'raven-js';
-import {ignoreErrors, ignoreUrls} from '@moccu/ravenjs-config';
+import {ignoreErrors, ignoreUrls} from '@moccu/sentry-config';
 
 
 Raven.config('https://<key>@sentry.io/<project>', {

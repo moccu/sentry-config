@@ -1,5 +1,5 @@
 {
-  "name": "@moccu/ravenjs-config",
+  "name": "@moccu/sentry-config",
   "version": "0.0.1",
   "description": "The basic raven.js configuration we use at moccu",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/moccu/ravenjs-config.git"
+    "url": "git+ssh://git@github.com/moccu/sentry-config.git"
   },
   "author": "Moccu GmbH & Co. KG",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/moccu/ravenjs-config/issues"
+    "url": "https://github.com/moccu/sentry-config/issues"
   },
-  "homepage": "https://github.com/moccu/ravenjs-config#readme",
+  "homepage": "https://github.com/moccu/sentry-config#readme",
   "devDependencies": {
     "@moccu/eslint-config": "^0.1.0",
     "chalk": "^2.4.1",
