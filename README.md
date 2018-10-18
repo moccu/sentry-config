@@ -19,8 +19,13 @@ given config object. The config object should contain at least a `dsn`
 and a list of strings called `whitelistUrls`. The init function adds additional
 tasks to the initialization process for the sentry sdk. It converts all
 whitelistUrls into regular expressions and adds additional `tags` from the
-config object into each scope of a sentry reporting. The usage may look as
-follows:
+config object into each scope of a sentry reporting.
+
+As second (optional) param you can pass a boolean whether to expose, or not
+to expose the `Senty`-Object to the global namespace. By default (= `true`)
+it  will be exposed.
+
+The usage may look as follows:
 
 ```js
 import {init} from '@moccu/sentry-config';
@@ -35,7 +40,7 @@ init({
 	tags: {
 		source: 'frontend'
 	}
-});
+}, true);
 ```
 
 ### Presets
