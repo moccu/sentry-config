@@ -53,7 +53,7 @@ Sentry.init({
 	whitelistUrls: [/example\.com/],
 	ignoreErrors,
 	ignoreUrls
-}).install();
+});
 
 // or
 
