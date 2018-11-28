@@ -3,8 +3,9 @@ language: node_js
 node_js:
 - "lts/*"
 - "node"
-- "10"
+- "11"
 install:
 - npm install
 script:
-- npm test
+- npm run test
+- npm run audit
