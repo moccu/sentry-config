@@ -1,8 +1,30 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@sentry/browser')) :
   typeof define === 'function' && define.amd ? define(['exports', '@sentry/browser'], factory) :
-  (factory((global['sentry-config'] = {}),global.Sentry));
-}(this, (function (exports,Sentry) { 'use strict';
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global['sentry-config'] = {}, global.Sentry));
+}(this, (function (exports, Sentry) { 'use strict';
+
+  function _interopNamespace(e) {
+    if (e && e.__esModule) return e;
+    var n = Object.create(null);
+    if (e) {
+      Object.keys(e).forEach(function (k) {
+        if (k !== 'default') {
+          var d = Object.getOwnPropertyDescriptor(e, k);
+          Object.defineProperty(n, k, d.get ? d : {
+            enumerable: true,
+            get: function () {
+              return e[k];
+            }
+          });
+        }
+      });
+    }
+    n['default'] = e;
+    return Object.freeze(n);
+  }
+
+  var Sentry__namespace = /*#__PURE__*/_interopNamespace(Sentry);
 
   function _defineProperty(obj, key, value) {
     if (key in obj) {
@@ -74,8 +96,7 @@
     return target;
   }
 
-  var 
-  /**
+  var /**
    * Very often, you will come across specific errors that are a result of
    * something other than your application, or errors that you’re completely not
    * interested in. ignoreErrors is a list of these messages to be filtered out
@@ -140,15 +161,15 @@
     }); // Expose Sentry API to global namespace.
 
     if (expose) {
-      global.Sentry = Sentry;
+      global.Sentry = Sentry__namespace;
     }
 
     return true;
   }
 
-  exports.init = init;
   exports.ignoreErrors = ignoreErrors;
   exports.ignoreUrls = ignoreUrls;
+  exports.init = init;
 
   Object.defineProperty(exports, '__esModule', { value: true });
 
