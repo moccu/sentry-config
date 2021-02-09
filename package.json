@@ -1,12 +1,12 @@
 {
   "name": "@moccu/sentry-config",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "The basic sentry configuration we use at moccu",
   "main": "dist/lib.js",
   "module": "src/lib.js",
   "scripts": {
-    "dist": "rollup --c ./rollup.config.js",
-    "test": "rollup --c ./rollup.config.test.js && node test/test.js",
+    "dist": "rollup --config ./rollup.config.js",
+    "test": "rollup --config ./rollup.config.test.js && node test/test.js",
     "audit": "npm-audit-ci --report --low"
   },
   "repository": {
@@ -22,15 +22,19 @@
   "devDependencies": {
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
-    "@moccu/eslint-config": "^0.1.0",
+    "@moccu/eslint-config": "^0.2.2",
+    "@rollup/plugin-babel": "^5.2.3",
+    "@rollup/plugin-commonjs": "^17.1.0",
+    "@types/babel__core": "^7.1.12",
     "babel-eslint": "^10.0.1",
     "chalk": "^2.4.1",
-    "eslint": "^5.3.0",
+    "eslint": "^7.19.0",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-sort-class-members": "^1.9.0",
     "npm-audit-ci": "^1.0.1",
-    "rollup": "^0.66.4",
-    "rollup-plugin-babel": "^4.0.3"
+    "rollup": "^2.38.5"
   },
   "dependencies": {
-    "@sentry/browser": "^4.4.0"
+    "@sentry/browser": "^6.1.0"
   }
 }
