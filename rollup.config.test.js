@@ -1,5 +1,5 @@
-const config = require('./rollup.config');
-
+import config from './rollup.config';
 
 config.output.file = '.temp/lib.js';
-module.exports = config;
+
+export default config;

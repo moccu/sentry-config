@@ -1,10 +1,9 @@
-const babel = require('rollup-plugin-babel');
+import {babel} from '@rollup/plugin-babel';
 
 
-module.exports = {
+export default {
 	input: 'src/lib.js',
 	output: {
-		external: ['Sentry'],
 		name: 'sentry-config',
 		globals: {
 			'@sentry/browser': 'Sentry'
@@ -12,7 +11,8 @@ module.exports = {
 		file: 'dist/lib.js',
 		format: 'umd'
 	},
+	external: ['@sentry/browser', 'Sentry'],
 	plugins: [
-		babel()
+		babel({babelHelpers: 'bundled'})
 	]
 };
