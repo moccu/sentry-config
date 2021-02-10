@@ -1,6 +1,6 @@
 # sentry-config
 
-[![Build Status](https://travis-ci.org/moccu/sentry-config.svg?branch=master)](https://travis-ci.org/moccu/sentry-config)
+![Build Status](https://github.com/moccu/sentry-config/workflows/CI/badge.svg)
 
 The basic sentry sdk configuration we use at moccu
 
@@ -72,6 +72,16 @@ init({
 	ignoreUrls
 });
 
+```
+
+## Publishing to NPM
+
+All you need to do to tag your commit with the version you want to publish.
+The rest is done by github actions.
+
+```
+$ git tag 1.0.0
+$ git push --follow-tags
 ```
 
 ## License
