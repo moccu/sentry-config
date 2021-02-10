@@ -12,7 +12,7 @@ jobs:
       with:
         node-version: 14.x
     - run: npm ci
-    - run: npm run dist --if-present
+    - run: npm run dist
     - run: npm test
     - run: npm run audit
 
@@ -28,7 +28,7 @@ jobs:
         node-version: 14.x
         registry-url: https://registry.npmjs.org/
     - run: npm ci
-    - run: npm build
+    - run: npm run dist
     - run: npm publish --access public --tag ${{ steps.vars.outputs.tag }} --dry-run # we should test this out before we exec this
       env:
         NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
