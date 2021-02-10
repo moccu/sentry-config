@@ -29,6 +29,6 @@ jobs:
         registry-url: https://registry.npmjs.org/
     - run: npm ci
     - run: npm run dist
-    - run: npm publish --access public --tag ${{ steps.vars.outputs.tag }} --dry-run # we should test this out before we exec this
+    - run: npm publish --access public --tag ${{ steps.vars.outputs.tag }} --dry-run
       env:
         NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
