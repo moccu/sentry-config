@@ -84,6 +84,10 @@ $ git tag 1.0.0
 $ git push --follow-tags
 ```
 
+If the publishing step fails due to authentication reasons you might need to
+create a new `NODE_AUTH_TOKEN` (on npm, make sure your'e a member of @moccu)
+and set it in the secrets settings of this repository.
+
 ## License
 
 [MIT](./LICENSE)
