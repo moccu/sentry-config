@@ -37,7 +37,11 @@ jobs:
       run: |
         npm ci
         npm run dist
+    - name: Resolving Release Tag 🔍
+      id: vars
+      run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
     - name: Publish 🚀
-      run: npm publish --access public --tag ${GITHUB_REF#refs/*/} --dry-run
+      run: npm publish --access public --tag $RELEASE_VERSION --dry-run
       env:
+        RELEASE_VERSION: ${{steps.vars.outputs.tag}}
         NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
