@@ -7,7 +7,10 @@
   "scripts": {
     "dist": "rollup --config ./rollup.config.js",
     "test": "rollup --config ./rollup.config.test.js && node test/test.js",
-    "audit": "npm-audit-ci --report --low"
+    "audit": "npm-audit-ci --report --low",
+    "preversion": "npm test",
+    "version": "npm run dist && git add -A dist",
+    "postversion": "git push && git push --tags && rm -rf .temp"
   },
   "repository": {
     "type": "git",
