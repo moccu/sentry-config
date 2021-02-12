@@ -1,6 +1,7 @@
 # sentry-config
 
 ![Build Status](https://github.com/moccu/sentry-config/workflows/CI/badge.svg)
+![Version](https://img.shields.io/npm/v/@moccu/sentry-config)
 
 The basic sentry sdk configuration we use at moccu
 
@@ -76,12 +77,12 @@ init({
 
 ## Publishing to NPM
 
-All you need to do to tag your commit with the version you want to publish.
-The rest is done by github actions.
+All you need to do is to mark your commit as releasable using `npm version` - you may want
+to take a look at the [documentation](https://docs.npmjs.com/cli/v6/commands/npm-version).
+The publishing itself is done by github actions.
 
 ```
-$ git tag 1.0.0
-$ git push --follow-tags
+$ npm version 1.0.0
 ```
 
 If the publishing step fails due to authentication reasons you might need to
