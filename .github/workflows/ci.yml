@@ -38,6 +38,6 @@ jobs:
         npm ci
         npm run dist
     - name: Publish 🚀
-      run: npm publish --access public --dry-run
+      run: npm publish --access public
       env:
         NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
