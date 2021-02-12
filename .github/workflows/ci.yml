@@ -38,6 +38,6 @@ jobs:
         npm ci
         npm run dist
     - name: Publish 🚀
-      run: npm publish --access public --tag ${{ steps.vars.outputs.tag }} --dry-run
+      run: npm publish --access public --tag ${GITHUB_REF#refs/*/} --dry-run
       env:
         NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
