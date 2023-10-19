@@ -37,7 +37,15 @@ jobs:
       run: |
         npm ci
         npm run dist
+
     - name: Publish 🚀
       run: npm publish --access public
       env:
         NODE_AUTH_TOKEN: ${{secrets.NODE_AUTH_TOKEN}}
+
+    - name: Publish to GitHub 🚀
+      run: |
+        npm set //npm.pkg.github.com/:_authToken $GITHUB_TOKEN
+        npm publish --access public --@moccu:registry=https://npm.pkg.github.com
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}

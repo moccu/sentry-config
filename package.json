@@ -1,6 +1,6 @@
 {
   "name": "@moccu/sentry-config",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "The basic sentry configuration we use at moccu",
   "main": "dist/lib.js",
   "module": "src/lib.js",
