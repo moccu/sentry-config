@@ -29,7 +29,7 @@
     "@rollup/plugin-babel": "^5.2.3",
     "@types/babel__core": "^7.1.12",
     "babel-eslint": "^10.0.1",
-    "chalk": "^2.4.1",
+    "chalk": "^6.0.0",
     "eslint": "^7.19.0",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-sort-class-members": "^1.9.0",
