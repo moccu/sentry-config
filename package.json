@@ -37,6 +37,6 @@
     "rollup": "^2.38.5"
   },
   "dependencies": {
-    "@sentry/browser": "^6.1.0"
+    "@sentry/browser": "^10.70.0"
   }
 }
