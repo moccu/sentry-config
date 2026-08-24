@@ -4,8 +4,7 @@
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global["sentry-config"] = {}, global.Sentry));
 })(this, (function (exports, Sentry) { 'use strict';
 
-  function _interopNamespace(e) {
-    if (e && e.__esModule) return e;
+  function _interopNamespaceDefault(e) {
     var n = Object.create(null);
     if (e) {
       Object.keys(e).forEach(function (k) {
@@ -18,18 +17,18 @@
         }
       });
     }
-    n["default"] = e;
+    n.default = e;
     return Object.freeze(n);
   }
 
-  var Sentry__namespace = /*#__PURE__*/_interopNamespace(Sentry);
+  var Sentry__namespace = /*#__PURE__*/_interopNamespaceDefault(Sentry);
 
   function _defineProperty(e, r, t) {
     return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, {
       value: t,
-      enumerable: !0,
-      configurable: !0,
-      writable: !0
+      enumerable: true,
+      configurable: true,
+      writable: true
     }) : e[r] = t, e;
   }
   function _objectWithoutProperties(e, t) {
@@ -56,7 +55,7 @@
     if ("object" != typeof t || !t) return t;
     var e = t[Symbol.toPrimitive];
     if (void 0 !== e) {
-      var i = e.call(t, r || "default");
+      var i = e.call(t, r);
       if ("object" != typeof i) return i;
       throw new TypeError("@@toPrimitive must return a primitive value.");
     }
@@ -170,7 +169,5 @@
   exports.ignoreErrors = ignoreErrors;
   exports.ignoreUrls = ignoreUrls;
   exports.init = init;
-
-  Object.defineProperty(exports, '__esModule', { value: true });
 
 }));
