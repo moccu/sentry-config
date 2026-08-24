@@ -17,10 +17,12 @@ $ npm install --save @moccu/sentry-config
 
 The sentry-config exposes an `init(...)` function to simply setup sentry with a
 given config object. The config object should contain at least a `dsn`
-and a list of strings called `whitelistUrls`. The init function adds additional
+and a list of strings called `allowUrls` (the deprecated `whitelistUrls` name
+is still accepted as an alias). The init function adds additional
 tasks to the initialization process for the sentry sdk. It converts all
-whitelistUrls into regular expressions and adds additional `tags` from the
-config object into each scope of a sentry reporting.
+allowUrls into regular expressions and adds additional `tags` from the
+config object into each scope of a sentry reporting. An `ignoreUrls` list, if
+given, is passed on to the sentry sdk as `denyUrls`.
 
 As second (optional) param you can pass a boolean whether to expose, or not
 to expose the `Senty`-Object to the global namespace. By default (= `true`)
@@ -34,7 +36,7 @@ import {init} from '@moccu/sentry-config';
 
 init({
 	dsn: 'https://<key>@sentry.io/<project>',
-	whitelistUrls: ['example\\.com'],
+	allowUrls: ['example\\.com'],
 	release: '1.0.0',
 	environment: 'live',
 	attachStacktrace: true,
@@ -56,9 +58,9 @@ import {ignoreErrors, ignoreUrls} from '@moccu/sentry-config';
 
 Sentry.init({
 	dsn: 'https://<key>@sentry.io/<project>',
-	whitelistUrls: [/example\.com/],
+	allowUrls: [/example\.com/],
 	ignoreErrors,
-	ignoreUrls
+	denyUrls: ignoreUrls
 });
 
 // or
@@ -68,7 +70,7 @@ import {init} from '@moccu/sentry-config';
 
 init({
 	dsn: 'https://<key>@sentry.io/<project>',
-	whitelistUrls: ['example\\.com'],
+	allowUrls: ['example\\.com'],
 	ignoreErrors,
 	ignoreUrls
 });

@@ -86,28 +86,31 @@ const
 ;
 
 
-function init({dsn, whitelistUrls, tags = {}, ...settings}, expose = true) {
-	// Log error if dsn or whitelist is not defined.
-	if (!dsn || !whitelistUrls) {
-		global.console &&
-		global.console.error &&
-		global.console.error('Setup sentry using dsn and whitelistUrls.');
+function init({dsn, whitelistUrls, allowUrls, ignoreUrls: denyUrls = [], tags = {}, ...settings}, expose = true) {
+	// `whitelistUrls` is kept as a deprecated alias for `allowUrls` (removed
+	// from the Sentry SDK in v7) so existing callers don't break on upgrade.
+	allowUrls = whitelistUrls || allowUrls;
+
+	// Log error if dsn or allow list is not defined.
+	if (!dsn || !allowUrls) {
+		globalThis.console &&
+		globalThis.console.error &&
+		globalThis.console.error('Setup sentry using dsn and allowUrls.');
 		return false;
 	}
 
-	// Transform whitelist urls strings (from json) into regular expressions.
-	whitelistUrls = whitelistUrls.map((url) => new RegExp(url));
+	// Transform allow list urls strings (from json) into regular expressions.
+	allowUrls = allowUrls.map((url) => new RegExp(url));
 
-	Sentry.init({dsn, whitelistUrls, ...settings});
+	Sentry.init({dsn, allowUrls, denyUrls, ...settings});
 
 	// Add additional tags under 'tags' property from settings.
-	Sentry.configureScope((scope) => {
-		Object.keys(tags).forEach((key) => scope.setTag(key, tags[key]));
-	});
+	const scope = Sentry.getCurrentScope();
+	Object.keys(tags).forEach((key) => scope.setTag(key, tags[key]));
 
 	// Expose Sentry API to global namespace.
 	if (expose) {
-		global.Sentry = Sentry;
+		globalThis.Sentry = Sentry;
 	}
 
 	return true;
