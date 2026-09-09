@@ -3,7 +3,7 @@ const
 	{ESLint} = require('eslint'),
 	eslint = new ESLint(),
 
-	lib = require('../dist/lib'),
+	lib = require('../.temp/lib'),
 	Sentry = require('@sentry/browser')
 ;
 
