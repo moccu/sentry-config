@@ -24,7 +24,7 @@
   "devDependencies": {
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
-    "@moccu/eslint-config": "^0.2.2",
+    "@moccu/eslint-config": "^0.6.0",
     "@rollup/plugin-babel": "^7.1.0",
     "@types/babel__core": "^7.1.12",
     "babel-eslint": "^10.0.1",
