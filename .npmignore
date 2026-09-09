@@ -1,7 +1,6 @@
 .github
 .editorconfig
-.eslintrc
-.eslintignore
+eslint.config.js
 .nvmrc
 .temp
 test
