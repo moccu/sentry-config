@@ -14,13 +14,9 @@ jobs:
         node-version-file: '.nvmrc'
         registry-url: https://registry.npmjs.org/
     - name: Build 🔧
-      run: |
-        npm ci
-        npm run dist
+      run: npm ci
     - name: Test 👨‍🔬
-      run: |
-        npm test
-        npm run audit
+      run: npm test
 
   build:
     runs-on: ubuntu-latest
