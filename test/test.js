@@ -10,6 +10,7 @@ const
 assert.deepStrictEqual(
 	Object.keys(lib),
 	[
+		'denyUrls',
 		'ignoreErrors',
 		'ignoreUrls',
 		'init'
@@ -18,8 +19,14 @@ assert.deepStrictEqual(
 );
 
 assert.ok(
-	Array.isArray(lib.ignoreUrls),
-	'ignore urls are available'
+	Array.isArray(lib.denyUrls),
+	'deny urls are available'
+);
+
+assert.strictEqual(
+	lib.ignoreUrls,
+	lib.denyUrls,
+	'ignoreUrls is a deprecated alias for denyUrls'
 );
 
 assert.ok(

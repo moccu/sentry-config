@@ -21,8 +21,9 @@ and a list of strings called `allowUrls` (the deprecated `whitelistUrls` name
 is still accepted as an alias). The init function adds additional
 tasks to the initialization process for the sentry sdk. It converts all
 allowUrls into regular expressions and adds additional `tags` from the
-config object into each scope of a sentry reporting. An `ignoreUrls` list, if
-given, is passed on to the sentry sdk as `denyUrls`.
+config object into each scope of a sentry reporting. A `denyUrls` list, if
+given, is passed on to the sentry sdk as-is (the deprecated `ignoreUrls` name
+is still accepted as an alias).
 
 As second (optional) param you can pass a boolean whether to expose, or not
 to expose the `Senty`-Object to the global namespace. By default (= `true`)
@@ -48,19 +49,20 @@ init({
 
 ### Presets
 
-The sentry-config exposes a preconfigured set of `ignoreErrors` and `ignoreUrls`.
-Usage may look as follows:
+The sentry-config exposes a preconfigured set of `ignoreErrors` and `denyUrls`
+(the latter is also exported as `ignoreUrls`, a deprecated alias kept for
+backwards compatibility). Usage may look as follows:
 
 ```js
 import * as Sentry from '@sentry/browser';
-import {ignoreErrors, ignoreUrls} from '@moccu/sentry-config';
+import {ignoreErrors, denyUrls} from '@moccu/sentry-config';
 
 
 Sentry.init({
 	dsn: 'https://<key>@sentry.io/<project>',
 	allowUrls: [/example\.com/],
 	ignoreErrors,
-	denyUrls: ignoreUrls
+	denyUrls
 });
 
 // or
@@ -72,7 +74,7 @@ init({
 	dsn: 'https://<key>@sentry.io/<project>',
 	allowUrls: ['example\\.com'],
 	ignoreErrors,
-	ignoreUrls
+	denyUrls
 });
 
 ```

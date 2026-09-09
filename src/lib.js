@@ -45,12 +45,12 @@ const
 	],
 
 	/**
-	 * The inverse of whitelistUrls and similar to ignoreErrors, but will ignore
+	 * The inverse of allowUrls and similar to ignoreErrors, but will ignore
 	 * errors from whole URLs matching a regex pattern or an exact string.
 	 *
 	 * @type {Array}
 	 */
-	ignoreUrls = [
+	denyUrls = [
 		// Google Services
 		/google-analytics\.com/,
 		/googletagmanager\.com/,
@@ -86,10 +86,14 @@ const
 ;
 
 
-function init({dsn, whitelistUrls, allowUrls, ignoreUrls: denyUrls = [], tags = {}, ...settings}, expose = true) {
+function init({dsn, whitelistUrls, allowUrls, ignoreUrls, denyUrls = [], tags = {}, ...settings}, expose = true) {
 	// `whitelistUrls` is kept as a deprecated alias for `allowUrls` (removed
 	// from the Sentry SDK in v7) so existing callers don't break on upgrade.
 	allowUrls = whitelistUrls || allowUrls;
+
+	// `ignoreUrls` is kept as a deprecated alias for `denyUrls` (renamed in
+	// the Sentry SDK) so existing callers don't break on upgrade.
+	denyUrls = ignoreUrls || denyUrls;
 
 	// Log error if dsn or allow list is not defined.
 	if (!dsn || !allowUrls) {
@@ -117,4 +121,4 @@ function init({dsn, whitelistUrls, allowUrls, ignoreUrls: denyUrls = [], tags = 
 }
 
 
-export {init, ignoreErrors, ignoreUrls};
+export {init, ignoreErrors, denyUrls, denyUrls as ignoreUrls};

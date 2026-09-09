@@ -103,12 +103,12 @@
     // Moccu defined
     /window\.performance/, /__firefox__/],
     /**
-     * The inverse of whitelistUrls and similar to ignoreErrors, but will ignore
+     * The inverse of allowUrls and similar to ignoreErrors, but will ignore
      * errors from whole URLs matching a regex pattern or an exact string.
      *
      * @type {Array}
      */
-    ignoreUrls = [
+    denyUrls = [
     // Google Services
     /google-analytics\.com/, /googletagmanager\.com/, /googleadservices\.com/, /\/(gtm|ga|analytics)\.js/i,
     // Facebook
@@ -127,15 +127,20 @@
     var dsn = _ref.dsn,
       whitelistUrls = _ref.whitelistUrls,
       allowUrls = _ref.allowUrls,
-      _ref$ignoreUrls = _ref.ignoreUrls,
-      denyUrls = _ref$ignoreUrls === void 0 ? [] : _ref$ignoreUrls,
+      ignoreUrls = _ref.ignoreUrls,
+      _ref$denyUrls = _ref.denyUrls,
+      denyUrls = _ref$denyUrls === void 0 ? [] : _ref$denyUrls,
       _ref$tags = _ref.tags,
       tags = _ref$tags === void 0 ? {} : _ref$tags,
-      settings = _objectWithoutProperties(_ref, ["dsn", "whitelistUrls", "allowUrls", "ignoreUrls", "tags"]);
+      settings = _objectWithoutProperties(_ref, ["dsn", "whitelistUrls", "allowUrls", "ignoreUrls", "denyUrls", "tags"]);
     var expose = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
     // `whitelistUrls` is kept as a deprecated alias for `allowUrls` (removed
     // from the Sentry SDK in v7) so existing callers don't break on upgrade.
     allowUrls = whitelistUrls || allowUrls;
+
+    // `ignoreUrls` is kept as a deprecated alias for `denyUrls` (renamed in
+    // the Sentry SDK) so existing callers don't break on upgrade.
+    denyUrls = ignoreUrls || denyUrls;
 
     // Log error if dsn or allow list is not defined.
     if (!dsn || !allowUrls) {
@@ -166,8 +171,9 @@
     return true;
   }
 
+  exports.denyUrls = denyUrls;
   exports.ignoreErrors = ignoreErrors;
-  exports.ignoreUrls = ignoreUrls;
+  exports.ignoreUrls = denyUrls;
   exports.init = init;
 
 }));
