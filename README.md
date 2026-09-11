@@ -1,7 +1,7 @@
 # sentry-config
 
-![Build Status](https://github.com/moccu/sentry-config/workflows/CI/badge.svg)
-![Version](https://img.shields.io/npm/v/@moccu/sentry-config)
+[![Build](https://github.com/moccu/sentry-config/actions/workflows/ci.yml/badge.svg)](https://github.com/moccu/sentry-config/actions)
+[![npm](https://img.shields.io/npm/v/@moccu/sentry-config)](https://www.npmjs.com/package/@moccu/sentry-config)
 
 The basic sentry sdk configuration we use at moccu
 
