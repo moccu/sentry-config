@@ -33,6 +33,6 @@
     "rollup": "^4.62.4"
   },
   "dependencies": {
-    "@sentry/browser": "^10.70.0"
+    "@sentry/browser": "^11.0.0"
   }
 }
