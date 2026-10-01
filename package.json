@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/moccu/sentry-config#readme",
   "devDependencies": {
-    "@babel/core": "^7.1.2",
+    "@babel/core": "^8.0.6",
     "@babel/preset-env": "^7.1.0",
     "@moccu/eslint-config": "^0.6.0",
     "@rollup/plugin-babel": "^7.1.0",
